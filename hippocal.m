@@ -1,3 +1,5 @@
+%%Calculate the area of hippocampus from marks exported from imageJ
+
 clc;clear;
 path = 'E:\Images czi et jpg\e-PILO CNO';
 cd([path,'\CA1'])
