@@ -1,3 +1,5 @@
+%% Calculate the angle between two body vectors
+
 function a = vecangle360(v1,v2,n)
     x = cross(v1,v2);
     c = sign(dot(x,n)) * norm(x);
