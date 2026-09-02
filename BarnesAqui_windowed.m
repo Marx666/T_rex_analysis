@@ -1,3 +1,5 @@
+%% Calculate the mean velocity with an 1s moving window
+
 path = 'E:\Videos Seizures without EEG)';
 cd(path)
 files = dir('**/*Velocity.mat');
