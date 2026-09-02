@@ -1,3 +1,5 @@
+%%Generate a video displaying the Barnes footage and the angle change curve together.
+
 videolist = dir('**/*.mpg');
 
 trialnum = 10;
