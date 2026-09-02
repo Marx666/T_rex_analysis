@@ -1,3 +1,5 @@
+%% Batch trimming videos with the same parameters
+
 path  = 'E:\Photometry_FP7_S5E2_Dlx\DATA cage';
 cd(path)
 video_files = dir('**/*.mp4');
@@ -13,7 +15,7 @@ for i = 1:length(video_files)
     for j = startFrame(i):nFrames
         try
             vframe = read(input_v, j);
-            vframe = vframe(401:1080,421:1420,:);
+            vframe = vframe(401:1080,421:1420,:); % set range/resolution
             writeVideo(output_v, vframe)
         catch
             endFrame(i) = j-1;
@@ -25,6 +27,6 @@ for i = 1:length(video_files)
     close(output_v)
 end
 Trim_time = [startFrame',endFrame'];
-save([video_files(i).folder,'\Trim_time.mat'],'Trim_time')
-imwrite(vframe,[video_files(i).folder,'\ref.jpg'])
+save([video_files(i).folder,'\Trim_time.mat'],'Trim_time') % start and end frame of trimming
+imwrite(vframe,[video_files(i).folder,'\ref.jpg']) % output a ref pic
 
