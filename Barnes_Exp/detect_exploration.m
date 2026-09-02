@@ -1,9 +1,11 @@
+%%Mark the periods when the animal is exploring
+
 function [anglec, hole_order, exp_range, entry_count, ref] = detect_exploration(xy, ishole)
 for i = 2:length(xy)
         Vec(i,:) = [xy(i,:)-xy(i-1,:),0];
 end
 
-p = [0 0 1];
+p = [0 0 1]; %Normal vector
 
 for j = 3:length(Vec)
     anglec(j) = vecangle360(Vec(j,:),Vec(j-1,:),p);
