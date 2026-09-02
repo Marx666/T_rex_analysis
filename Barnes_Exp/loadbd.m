@@ -1,8 +1,10 @@
+%%Main script for Barnes exploration detection
+
 clear; clc;
 path = 'E:\analysistrajectories\ctrl suc';
 cd(path)
 
-namelist = dir('**/*.xlsx');
+namelist = dir('**/*.xlsx'); % DLC output files
 
 B = cell(1,length(namelist));
 for i = 1:length(namelist)
