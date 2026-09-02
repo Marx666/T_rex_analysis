@@ -1,3 +1,5 @@
+%%Function used in the app to trim behavioral videos
+
 function [Trim_time] = trim_video(filepath, startFrame, endFrame, Height1, Height2, Width1, Width2)
 
 input_v = VideoReader(filepath);
@@ -14,7 +16,7 @@ for j = startFrame:nFrames
     try
         vframe = read(input_v, j);
         if and(Height1<Height2,Width1<Width2)
-            vframe = vframe(Height1:Height2,Width1:Width2,:);
+            vframe = vframe(Height1:Height2,Width1:Width2,:); % set range/resolution
         end
         writeVideo(output_v, vframe)
     catch
@@ -27,7 +29,7 @@ end
 close(output_v)
 
 Trim_time = [startFrame', endFrame'];
-save([filepath(1:end-4),'_Trim_time'],'Trim_time')
-imwrite(vframe,'ref.jpg')
+save([filepath(1:end-4),'_Trim_time'],'Trim_time') % The start and end frame of trimming
+imwrite(vframe,'ref.jpg') % output a referance pic for measuring
 
 return
